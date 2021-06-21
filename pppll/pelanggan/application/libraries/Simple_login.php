@@ -10,6 +10,7 @@ class Simple_login {
 	public function login($email_user, $pass_user) {
 		$admin = $this->CI->db->get_where('user',array('email_user'=>$email_user,'pass_user' => $pass_user, 'role_user'=>'Game Master' , 'status_user'=> 'Aktif'));
 		$query = $this->CI->db->get_where('user',array('email_user'=>$email_user));
+		$user =$this->CI->db->get_where('user',array('email_user'=>$email_user,'pass_user' => $pass_user, 'role_user'=>'Pelanggan' , 'status_user'=> 'Aktif'));
 		// $admin2 = $admin->result();
 		// echo "<pre>";
   //       print_r($admin2);
@@ -27,6 +28,19 @@ class Simple_login {
 			$this->CI->session->set_userdata('id_login', uniqid(rand()));
 			$this->CI->session->set_userdata('id_user', $id);
 			redirect(base_url('/admin')); 
+		}
+		else if($user->num_rows()==1)
+		{
+			$row 	= $this->CI->db->query('SELECT * FROM user where email_user = "'.$email_user.'" AND pass_user="'.$pass_user.'" ');
+			$id 	= $row->row()->id_user;
+			$nama 	= $row->row()->nama_user;
+			$role 	= $row->row()->role_user;
+			$this->CI->session->set_userdata('email_user', $email_user);
+			$this->CI->session->set_userdata('nama_user', $nama);
+			$this->CI->session->set_userdata('role_user', $role);
+			$this->CI->session->set_userdata('id_login', uniqid(rand()));
+			$this->CI->session->set_userdata('id_user', $id);
+			redirect(base_url('/pelanggan')); 
 		}
 		else
 			if($query->num_rows() < 1 ) {
