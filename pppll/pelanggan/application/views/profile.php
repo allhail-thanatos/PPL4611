@@ -22,6 +22,8 @@
     background-attachment: fixed;
     background-size: cover;
 }
+
+
 </style>
     <?php $this->load->view('layout/layoutpelanggan/temp_sidebar.php'); ?>
         <!-- Page Content-->
@@ -31,36 +33,29 @@
             <section class="resume-section" id="profile">
             <form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <h3 style="color:blue;">Email</h3>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('email_user');?>" disabled>
                 </div>
                 <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <h3 style="color:blue;">Role</h3>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="<?php echo $this->session->userdata('role_user');?>"disabled>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <h3 style="color:blue;">Nama</h3>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('nama_user');?>"disabled>
+                    
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Cellphone Number</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <h3 style="color:blue;">Alamat</h3>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('alamat_user');?>"disabled>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Gender</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <h3 style="color:blue;">Jenis Kelamin</h3>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('jk_user');?>"disabled>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                </div>
+                
                 <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
             </form>
             </section>
             <hr class="m-0" />

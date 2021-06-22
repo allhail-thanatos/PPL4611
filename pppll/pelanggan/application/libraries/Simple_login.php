@@ -35,9 +35,15 @@ class Simple_login {
 			$id 	= $row->row()->id_user;
 			$nama 	= $row->row()->nama_user;
 			$role 	= $row->row()->role_user;
+			$password= $row->row()->password_user;
+			$alamat_user=$row->row()->alamat_user;
+			$jk_user=$row->row()->jk_user;
 			$this->CI->session->set_userdata('email_user', $email_user);
 			$this->CI->session->set_userdata('nama_user', $nama);
 			$this->CI->session->set_userdata('role_user', $role);
+			$this->CI->session->set_userdata('password_user', $password);
+			$this->CI->session->set_userdata('jk_user', $jk_user);
+			$this->CI->session->set_userdata('alamat_user', $alamat_user);
 			$this->CI->session->set_userdata('id_login', uniqid(rand()));
 			$this->CI->session->set_userdata('id_user', $id);
 			redirect(base_url('/pelanggan')); 

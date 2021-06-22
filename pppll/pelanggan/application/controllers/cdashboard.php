@@ -18,7 +18,7 @@ class cdashboard extends CI_Controller {
 		//  echo "<pre>";
 		//  exit();
 		
-		$this->template->load('admin', 'content' , 'dashboard/data',$data);
+		$this->template->load('pelanggan', 'content' , 'home',$data);
 	}
 		
 }

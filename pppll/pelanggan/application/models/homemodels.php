@@ -21,7 +21,7 @@ class Homemodels extends CI_Model {
         $this->db->from('user');
         $this->db->where('role_user !=',$role);
         $query = $this->db->get();
-        
+    
 		return $query->num_rows();
 	}
 			
