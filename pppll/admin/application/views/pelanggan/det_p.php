@@ -70,14 +70,6 @@
                       <a  class="float-left"><?php echo $row['email_user'] ?></a>
                     </div>
                   </li>
-                  <li class="list-group-item">
-                    <div class="col-md-4">
-                      <b style="width:80%;"class="float-left">Username</b>
-                    </div>
-                    <div class="col-md-8">
-                      <a  class="float-left"><?php echo $row['uname_user'] ?></a>
-                    </div>
-                  </li>
                   <?php } ?>
                   <li class="list-group-item">
                     <div class="col-md-12" style="align-content: center;">

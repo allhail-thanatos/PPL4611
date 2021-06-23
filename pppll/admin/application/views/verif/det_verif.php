@@ -61,14 +61,6 @@
                       <a  class="float-left">abx1122@gmail.com</a>
                     </div>
                   </li>
-                  <li class="list-group-item">
-                    <div class="col-md-4">
-                      <b style="width:80%;"class="float-left">Username</b>
-                    </div>
-                    <div class="col-md-8">
-                      <a  class="float-left">abx112</a>
-                    </div>
-                  </li>
                 </ul>
                 <br>
                 

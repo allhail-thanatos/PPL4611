@@ -60,13 +60,6 @@
                       <?php echo form_input( 'email_user', set_value( 'email_user'), 'class="form-control" id="email_user" placeholder="Masukkan Email" '). "<div style='color: red;'>".form_error( 'email_user'). "</div>"; ?>
                     </div>
                   </div>
-
-                  <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">Username</label>
-                    <div class="col-sm-6">
-                      <?php echo form_input( 'uname_user', set_value( 'uname_user'), 'class="form-control" id="uname_user" placeholder="Masukkan Username" '). "<div style='color: red;'>".form_error( 'uname_user'). "</div>"; ?>
-                    </div>
-                  </div>
                                     
                 </ul>
 

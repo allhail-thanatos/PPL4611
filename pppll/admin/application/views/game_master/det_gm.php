@@ -70,14 +70,6 @@
                       <a  class="float-left"><?php echo $row['email_user'] ?></a>
                     </div>
                   </li>
-                  <li class="list-group-item">
-                    <div class="col-md-4">
-                      <b style="width:80%;"class="float-left">Username</b>
-                    </div>
-                    <div class="col-md-8">
-                      <a  class="float-left"><?php echo $row['uname_user'] ?></a>
-                    </div>
-                  </li>
                 </ul>
 
                 <center><a href="<?php echo base_url('admin/index.php/cgamemaster'); ?>" class="btn btn-primary" style="width:25%;"><b>Kembali</b></a></center>

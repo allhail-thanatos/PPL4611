@@ -30,7 +30,6 @@ class cgamemaster extends CI_Controller {
         $this->form_validation->set_rules('alamat_user', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('telp_user', 'No Telepon', 'trim|required');
         $this->form_validation->set_rules('email_user', 'Email', 'trim|required');
-        $this->form_validation->set_rules('uname_user', 'Username', 'trim|required');
 
         $this->form_validation->set_message('required', '*) Lengkapi Data Anda!');
 
@@ -47,11 +46,10 @@ class cgamemaster extends CI_Controller {
         else
         {       
             $data['nama_user']		= $this->input->post('nama_user');
-			$data['jk_user']			= $this->input->post('jk_user');
-			$data['alamat_user']		= $this->input->post('alamat_user');
+			$data['jk_user']		= $this->input->post('jk_user');
+			$data['alamat_user']	= $this->input->post('alamat_user');
 			$data['telp_user']		= $this->input->post('telp_user');
 			$data['email_user']		= $this->input->post('email_user');
-			$data['uname_user']		= $this->input->post('uname_user');
             $data['role_user']      = 'Game Master';
 
 			// echo "<pre>";
@@ -72,7 +70,6 @@ class cgamemaster extends CI_Controller {
         $this->form_validation->set_rules('alamat_user', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('telp_user', 'No Telepon', 'trim|required');
         $this->form_validation->set_rules('email_user', 'Email', 'trim|required');
-        $this->form_validation->set_rules('uname_user', 'Username', 'trim|required');
 
         $this->form_validation->set_message('required', '*) Lengkapi Data Anda!');
 
@@ -89,11 +86,10 @@ class cgamemaster extends CI_Controller {
         else
         {       
             $data['nama_user']		= $this->input->post('nama_user');
-			$data['jk_user']			= $this->input->post('jk_user');
-			$data['alamat_user']		= $this->input->post('alamat_user');
+			$data['jk_user']		= $this->input->post('jk_user');
+			$data['alamat_user']	= $this->input->post('alamat_user');
 			$data['telp_user']		= $this->input->post('telp_user');
 			$data['email_user']		= $this->input->post('email_user');
-			$data['uname_user']		= $this->input->post('uname_user');
 
 			// echo "<pre>";
 			// print_r($data);
