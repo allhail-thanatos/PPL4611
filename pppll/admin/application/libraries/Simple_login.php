@@ -22,6 +22,7 @@ class Simple_login {
 			$id 	= $row->row()->id_user;
 			$nama 	= $row->row()->nama_user;
 			$role 	= $row->row()->role_user;
+			$foto 	= $row->row()->foto_user;
 			$this->CI->session->set_userdata('email_user', $email_user);
 			$this->CI->session->set_userdata('nama_user', $nama);
 			$this->CI->session->set_userdata('role_user', $role);

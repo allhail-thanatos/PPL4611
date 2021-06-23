@@ -125,17 +125,29 @@
       </li>
       <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <img src="<?php echo base_url('assets/img/user2-160x160.jpg')?>"  class="user-image img-circle elevation-2" alt="User Image">
+          <?php if ($this->session->userdata('foto_user') == NULL) { ?>
+                <img src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User Image" class="user-image img-circle elevation-2">
+            <?php
+            }else { ?>
+                <img src="<?php echo base_url('upload/foto_profile/'.$row->foto_user) ?>" alt="User Image" class="user-image img-circle elevation-2">
+            <?php } ?>
+          <!-- <img src="<?php echo base_url('assets/img/user2-160x160.jpg')?>"  class="user-image img-circle elevation-2" alt="User Image"> -->
           <span class="d-none d-md-inline"></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
           <li class="user-header bg-primary">
-            <img src="<?php echo base_url('assets/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image">
+            <?php if ($this->session->userdata('foto_user') == NULL) { ?>
+                <img src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User Image" class="img-circle elevation-2">
+            <?php
+            }else { ?>
+                <img src="<?php echo base_url('upload/foto_profile/'.$row->foto_user) ?>" alt="User Image" class="img-circle elevation-2">
+            <?php } ?>
+            <!-- <img src="<?php echo base_url('assets/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image"> -->
 
             <p>
-              Alexander Pierce - Web Developer
-              <small>Member since Nov. 2012</small>
+              <?php echo $this->session->userdata('nama_user'); ?>
+              <small><?php echo $this->session->userdata('email_user'); ?></small>
             </p>
           </li>
           <!-- Menu Body -->
