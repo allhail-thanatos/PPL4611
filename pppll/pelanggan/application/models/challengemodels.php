@@ -24,5 +24,25 @@ class Challengemodels extends CI_Model {
         
 		return $query->num_rows();
 	}
+	function getjc() // List User
+	{ 
+		$this->db->select('*');
+        $this->db->from('jenis_challenge');
+        $this->db->order_by('nama_jc','ASC');
+        $query = $this->db->get();
+
+        return $query;
+	}
+
+	function det_jc($id_jc) 
+	{ 
+		$this->db->select('*'); 
+        $this->db->from('jenis_challenge');
+
+        $this->db->where('id_jc',$id_jc);
+        
+        $query = $this->db->get();
+        return $query;
+	}
 			
 }

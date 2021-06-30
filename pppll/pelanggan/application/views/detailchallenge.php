@@ -34,15 +34,17 @@
                 <thead>
                 <tr>
                 <th scope="col">Nama Challenge</th>
+                <th scope="col">Deskripsi Challenge</th>
                 <th scope="col">Skor</th>
                 </tr>
                 </thead>
                 <?php
-          foreach ($query->result_array() as $row) {
+          foreach ($detail->result_array() as $row) {
             ?>
                 <tbody>
                 <tr>
                 <td><a href="<?php echo base_url('pelanggan/index.php/challenge/detjc/'.$row['id_jc']); ?>"><?php echo $row['nama_jc']?></td>
+                <td><?php echo $row['desc_jc'] ?></td>
                 <td><?php echo $row['score_jc'] ?></td>
             </tbody>
             <?php } ?>
