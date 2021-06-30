@@ -1,6 +1,6 @@
 <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
+      <div class="container-fluid"> 
         <div class="row">
           <div class="col-md-12">
 
@@ -11,12 +11,12 @@
               </div>
               <div class="card-body">
               <?php foreach ($edit->result_array() as $rows) {?>
-                <form action="<?php echo base_url('admin/index.php/cgamemaster/updategm/'.$this->encrypt->encode($rows['id_user'])) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/cprofile/updateprofile/'.$this->encrypt->encode($rows['id_user'])) ?>" method="post" enctype="multipart/form-data">
               <?php } ?>
               <?php foreach ($edit->result_array() as $row) {?>
                 <div class="text-center">
                   <?php if ($row['foto_user'] == NULL) { ?>
-                      <img id="output1" src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle">
+                      <img id="output1" src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle" style="width: 150px;height: 150px;">
                   <?php
                   }else { ?> 
                       <img id="output1" src="<?php echo base_url('upload/foto_profile/'.$row['foto_user']) ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle" style="width: 150px;height: 150px;">
@@ -85,6 +85,7 @@
                       <?php echo form_input( 'email_user', $row['email_user'], 'class="form-control" id="email_user" placeholder="Masukkan Email" '). "<div style='color: red;'>".form_error( 'email_user'). "</div>"; ?>
                     </div>
                   </div>
+
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Foto</label>
                     <div class="col-sm-6">
@@ -99,8 +100,8 @@
                 </ul>
 
                 <center>
-                  <a href="<?php echo base_url('admin/index.php/cgamemaster'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
-                  <button type="Submit" class="btn btn-primary" style="width:20%;" id="submit" value="Submit">Update</button>
+                  <a href="<?php echo base_url('admin/cprofile/detprofile/'.$id_user); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
+                  <button type="Submit" class="btn btn-primary" id="submit" style="width:20%;" value="Submit">Update</button>
                 </center>
               <?php } ?>  
               </div>
@@ -112,7 +113,7 @@
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-      <script type="text/javascript">
+    <script type="text/javascript">
       var loadFile1 = function(event) {
           var reader = new FileReader();
           var fsize = $('#gambar1')[0].files[0].size;
@@ -155,5 +156,6 @@
               }
           };
     </script>
+          
     </section>
     <!-- /.content -->

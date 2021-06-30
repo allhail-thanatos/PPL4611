@@ -12,9 +12,12 @@
               <div class="card-body">
                 <?php foreach ($detail->result_array() as $row) { ?>
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="<?php echo base_url('assets/img/user4-128x128.jpg')?>"
-                       alt="User profile picture">
+                  <?php if ($row['foto_user'] == NULL) { ?>
+                      <img src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle">
+                  <?php
+                  }else { ?> 
+                      <img src="<?php echo base_url('upload/foto_profile/'.$row->foto_user) ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle">
+                  <?php } ?>
                 </div>
 
                 <h3 class="profile-username text-center"><?php echo $row['nama_user'] ?></h3>

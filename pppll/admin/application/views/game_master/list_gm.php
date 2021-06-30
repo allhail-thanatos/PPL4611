@@ -24,15 +24,15 @@
           <td style="text-align: center;"><?php echo $row['nama_user'] ?></td>
           <td style="text-align: center;"><?php echo $row['id_user'] ?></td>
           <td style="text-align: center;">
-              <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/detgm/'.$row['id_user']); ?>">
+              <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/detgm/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-folder"></i>
               View
             </a>
-            <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/updategm/'.$row['id_user']); ?>">
+            <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/updategm/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-pencil-alt"></i>
               Edit
             </a>
-            <a class="btn btn-danger btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/deletegm/'.$row['id_user']); ?>">
+            <a class="btn btn-danger btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/deletegm/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-trash"></i>
               Delete
             </a>

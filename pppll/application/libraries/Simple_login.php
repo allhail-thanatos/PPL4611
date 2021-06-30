@@ -3,7 +3,7 @@
 class Simple_login {
 	// SET SUPER GLOBAL
 	var $CI = NULL;
-	public function __construct() {
+	public function __construct() { 
 		$this->CI =& get_instance();
 	}
 	// Fungsi login
@@ -29,6 +29,7 @@ class Simple_login {
 			$this->CI->session->set_userdata('foto_user', $foto);
 			$this->CI->session->set_userdata('id_login', uniqid(rand()));
 			$this->CI->session->set_userdata('id_user', $id);
+			
 			redirect(base_url('/admin')); 
 		}
 		else if($user->num_rows()==1)
@@ -69,7 +70,6 @@ class Simple_login {
 		}
 		return false;
 	}
-
 
 	// Proteksi halaman
 	public function cek_login() {

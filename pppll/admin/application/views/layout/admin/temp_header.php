@@ -128,8 +128,8 @@
           <?php if ($this->session->userdata('foto_user') == NULL) { ?>
                 <img src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User Image" class="user-image img-circle elevation-2">
             <?php
-            }else { ?>
-                <img src="<?php echo base_url('upload/foto_profile/'.$row->foto_user) ?>" alt="User Image" class="user-image img-circle elevation-2">
+            }else { ?> 
+                <img src="<?php echo base_url('upload/foto_profile/'.$this->session->userdata('foto_user')) ?>" alt="User Image" class="user-image img-circle elevation-2">
             <?php } ?>
           <!-- <img src="<?php echo base_url('assets/img/user2-160x160.jpg')?>"  class="user-image img-circle elevation-2" alt="User Image"> -->
           <span class="d-none d-md-inline"></span>
@@ -141,7 +141,7 @@
                 <img src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User Image" class="img-circle elevation-2">
             <?php
             }else { ?>
-                <img src="<?php echo base_url('upload/foto_profile/'.$row->foto_user) ?>" alt="User Image" class="img-circle elevation-2">
+                <img src="<?php echo base_url('upload/foto_profile/'.$this->session->userdata('foto_user')) ?>" alt="User Image" class="img-circle elevation-2">
             <?php } ?>
             <!-- <img src="<?php echo base_url('assets/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image"> -->
 
@@ -166,7 +166,7 @@
           </li> -->
           <!-- Menu Footer-->
           <li class="user-footer">
-            <a href="#" class="btn btn-default btn-flat">Profile</a>
+            <a href="<?php echo base_url('admin/cprofile/detprofile/'.$this->encrypt->encode($this->session->userdata('id_user'))); ?>" class="btn btn-default btn-flat">Profile</a>
             <a href="<?php echo base_url('index.php/clogin/Logout') ?>" class="btn btn-default btn-flat float-right">Sign out</a>
           </li>
         </ul>
