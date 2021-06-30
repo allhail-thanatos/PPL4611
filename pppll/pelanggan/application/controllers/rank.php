@@ -11,15 +11,12 @@ class rank extends CI_Controller {
  
 	// Index login
 	public function index() {
-		$data['gm']=$this->rankmodels->get_gm();
-		$data['pelanggan']=$this->rankmodels->get_pelanggan();
-		// 	echo "<pre>";
-		//  print_r($data);
-		//  echo "<pre>";
-		//  exit();
+		$data['ranking'] = $this->rankmodels->get_rank();
 		
-		$this->load->view('rank',$data);
+		$this->load->view('rank', $data);
+		//$this->template->load('pelanggan', 'content' , 'rank',$data);
 	}
+
 		
 }
 ?>
