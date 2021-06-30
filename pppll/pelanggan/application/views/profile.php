@@ -34,7 +34,7 @@
             <form>
                 <div class="form-group">
                 <h3 style="color:blue;">Email</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('email_user');?>" disabled>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('email_user');?>" >
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Role</h3>
@@ -42,12 +42,12 @@
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Nama</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('nama_user');?>"disabled>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('nama_user');?>">
                     
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Alamat</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('alamat_user');?>"disabled>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('alamat_user');?>">
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Jenis Kelamin</h3>
