@@ -12,13 +12,6 @@ class cprofile extends CI_Controller {
 
 	// Index login
 	public function index($id_user) {
-		// $id = $this->encrypt->decode($id_user);
-		// $key = "cHBsNg==";
-		// $id = $this->encrypt->decode($id_user , $key);
-		// 		 echo "<pre>";
-		//       print_r($id);
-		//       echo "<pre>";
-		//       exit();
 		$data = '';
 
         $this->template->load('admin', 'content' , 'profile/det_profile', $data);
@@ -79,19 +72,16 @@ class cprofile extends CI_Controller {
 			$this->load->library('upload', $config);
 
 			if (!empty($_FILES["foto_user"]["name"])) {
-
 	          if ($this->upload->do_upload('foto_user')) {
 				$data['foto_user'] = $this->upload->data('file_name');
 				$this->session->set_userdata('foto_user', $this->upload->data('file_name'));
 				}
-
 	        } else {
-
 	          $data['foto_user'] = $this->input->post('old_foto');
 	          $this->session->set_userdata('foto_user', $this->input->post('old_foto'));
 	        }
-			
-
+			$this->session->set_userdata('nama_user', $this->input->post('nama_user'));
+			$this->session->set_userdata('email_user', $this->input->post('email_user'));
 			// echo "<pre>";
 			// print_r($data);
 			// echo "<pre>";
@@ -101,24 +91,5 @@ class cprofile extends CI_Controller {
         	$this->detprofile($id_user);
         }
     }
-
-  //   public function simpan_foto() {
-		// $data = array();
-		// $config['upload_path'] = '.../upload/foto_profile/';
-		// $config['allowed_types'] = 'jpg|jpeg|png';
-		// $config['max_size'] = 2048;
-		// $config['encrypt_name'] = true;
-		// // $config['max_width']            = 1024;
-		// // $config['max_height']           = 768;
-
-		// $this->load->library('upload', $config);
-
-		// if (!$this->upload->do_upload('foto_user')) {
-		//   $error = array('error' => $this->upload->display_errors());
-		// } else {
-		//   $fileData = $this->upload->data();
-		//   return $data['foto_user'] = $fileData['file_name'];
-		// }
-  //   }
 		
 }
