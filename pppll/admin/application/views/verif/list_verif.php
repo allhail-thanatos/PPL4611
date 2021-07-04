@@ -17,13 +17,17 @@
         </tr>
         </thead>
         <tbody>
+        <?php
+          foreach ($query->result_array() as $row) {
+        ?>
         <tr>
-          <td style="text-align: center;">AAAAA</td>
-          <td style="text-align: center;">Jenis A0</td>
-          <td style="text-align: center;">01/01/2021</td>
+          <td style="text-align: center;"><?php echo $row['nama_user'] ?></td>
+          <td style="text-align: center;"><?php echo $row['nama_jc'] ?></td>
+          <td style="text-align: center;"><?php echo date("d-m-Y H:i", strtotime($row['tgl_submit_per'])); ?> WIB</td>
           <td style="text-align: center;">
-              <a href="" style="width:fit-content;" class="btn btn-success btn-sm">Verifikasi</a>
-              <a href="" style="width:fit-content;" class="btn btn-danger btn-sm">Tolak</a>
+            <center>
+              <a class="btn btn-success"  href="<?php echo base_url('admin/index.php/cverif/verif/'.$this->encrypt->encode($row['id_per'])); ?>">Verifikasi</a>
+              <a class="btn btn-danger"  href="<?php echo base_url('admin/index.php/cverif/tolak/'.$this->encrypt->encode($row['id_per'])); ?>">Tolak</a>
           </td>
           <td style="text-align: center;">
             <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cverif/detverif'); ?>"> 
@@ -32,36 +36,7 @@
             </a>
           </td>
         </tr>
-        <tr>
-          <td style="text-align: center;">BBBBBBB</td>
-          <td style="text-align: center;">Jenis A03</td>
-          <td style="text-align: center;">01/01/2022</td>
-          <td style="text-align: center;">
-              <a href="" style="width:fit-content;" class="btn btn-success btn-sm">Verifikasi</a>
-              <a href="" style="width:fit-content;" class="btn btn-danger btn-sm">Tolak</a>
-          </td>
-          <td style="text-align: center;">
-            <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cverif/detverif'); ?>">
-              <i class="fas fa-folder"></i>
-              View
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td style="text-align: center;">BGBGBGBGBG</td>
-          <td style="text-align: center;">Jenis A01</td>
-          <td style="text-align: center;">03/07/2022</td>
-          <td style="text-align: center;">
-              <a href="" style="width:fit-content;" class="btn btn-success btn-sm">Verifikasi</a>
-              <a href="" style="width:fit-content;" class="btn btn-danger btn-sm">Tolak</a>
-          </td>
-          <td style="text-align: center;">
-            <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cverif/detverif'); ?>">
-              <i class="fas fa-folder"></i>
-              View
-            </a>
-          </td>
-        </tr>
+        <?php } ?>
         </tbody>
         <tfoot>
         <tr>

@@ -6,11 +6,11 @@ class cverif extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('mverif');
+		$this->load->model('mverif'); 
 	} 
  
 	public function index() {
-		$data='';
+		$data['query'] = $this->mverif->getverif();
 		
 		$this->template->load('admin', 'content' , 'verif/list_verif',$data);
 	}
@@ -20,6 +20,18 @@ class cverif extends CI_Controller {
         $data = '';
 
         $this->template->load('admin', 'content' , 'verif/det_verif', $data);
+    }
+
+    function verif($id_per)
+    { 
+        $this->mverif->verif($this->encrypt->decode($id_per));
+        redirect("admin/cverif","refresh");       
+    }
+
+    function tolak($id_per)
+    {
+        $this->mverif->tolak($this->encrypt->decode($id_per));
+        redirect("admin/cverif","refresh");       
     }
 		
 }
