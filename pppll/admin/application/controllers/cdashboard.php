@@ -7,14 +7,19 @@ class cdashboard extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('mdashboard');
-	}
+	} 
  
 	// Index login
 	public function index() {
 		$data['gm']=$this->mdashboard->get_gm();
+		$data['gm_a']=$this->mdashboard->get_gm_a();
+		$data['gm_n']=$this->mdashboard->get_gm_n();
 		$data['pelanggan']=$this->mdashboard->get_pelanggan();
+		$data['pelanggan_a']=$this->mdashboard->get_pelanggan_a();
+		$data['pelanggan_n']=$this->mdashboard->get_pelanggan_n();
+		$data['verif']=$this->mdashboard->get_verif();
 		// 	echo "<pre>";
-		//  print_r($data);
+		//  print_r($data); 
 		//  echo "<pre>";
 		//  exit();
 		
