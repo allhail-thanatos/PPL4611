@@ -11,15 +11,15 @@
               </div>
               <div class="card-body">
               <?php foreach ($edit->result_array() as $rows) {?>
-                <form action="<?php echo base_url('admin/index.php/cpelanggan/updatep/'.$rows['id_user']) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/index.php/cpelanggan/updatep/'.$this->encrypt->encode($rows['id_user'])) ?>" method="post" enctype="multipart/form-data">
               <?php } ?>
               <?php foreach ($edit->result_array() as $row) {?>
                 <div class="text-center">
                   <?php if ($row['foto_user'] == NULL) { ?>
-                      <img src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle">
+                      <img id="output1" src="<?php echo base_url('assets/admin/img/a.png') ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle">
                   <?php
                   }else { ?> 
-                      <img src="<?php echo base_url('upload/foto_profile/'.$row->foto_user) ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle">
+                      <img id="output1" src="<?php echo base_url('upload/foto_profile/'.$row['foto_user']) ?>" alt="User profile picture" class="profile-user-img img-fluid img-circle" style="width: 150px;height: 150px;">
                   <?php } ?>
                 </div>
 
@@ -85,13 +85,23 @@
                       <?php echo form_input( 'email_user', $row['email_user'], 'class="form-control" id="email_user" placeholder="Masukkan Email" '). "<div style='color: red;'>".form_error( 'email_user'). "</div>"; ?>
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Foto</label>
+                    <div class="col-sm-6">
+                      
+                      <?php echo form_upload( 'foto_user', 'foto_user', 'class="form-control-file" id="gambar1" accept="image/*" onchange="loadFile1(event)"');?>
+                      <?php echo form_hidden( 'old_foto', $row[ 'foto_user'], 'class="form-control" id="gambar1" name="gambar1" ');?>
+                      <!-- <button id="reset_file" type="button" >Reset</button> -->
+                    </div>
+                  </div>
                   
                   
                 </ul>
 
                 <center>
                   <a href="<?php echo base_url('admin/index.php/cpelanggan'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
-                  <button type="Submit" class="btn btn-primary" style="width:20%;" value="Submit">Submit</button>
+                  <button type="Submit" class="btn btn-primary" style="width:20%;" id="submit" value="Submit">Submit</button>
                 </center>
               <?php } ?>
               </div>
@@ -103,5 +113,48 @@
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
+      <script type="text/javascript">
+      var loadFile1 = function(event) {
+          var reader = new FileReader();
+          var fsize = $('#gambar1')[0].files[0].size;
+          var ftype = $('#gambar1')[0].files[0].type;
+          reader.onload = function() {
+              var output1 = document.getElementById('output1');
+              output1.src = reader.result;
+          };
+          reader.readAsDataURL(event.target.files[0]);
+
+
+          if (fsize > 2097152) //do something if file size more than 1 mb (1048576)
+          {
+              alert("File Terlalu Besar!\nMaksimal Ukuran File 2MB");
+              document.getElementById("submit").disabled = true;
+              //document.getElementById("kir_no").disabled = true;
+          } else {
+              switch (ftype) {
+                  case 'image/png':
+                  case 'image/jpeg':
+                  case 'image/jpg':
+                      document.getElementById("submit").disabled = false;
+              }
+              document.getElementById("submit").disabled = false;
+          }
+
+
+          switch (ftype) {
+              case 'image/png':
+              case 'image/jpeg':
+              case 'image/jpg':
+                  if (fsize < 2097152) //do something if file size more than 1 mb (1048576)
+                  {
+                      document.getElementById("submit").disabled = false;
+                  }
+                  break;
+              default:
+                  alert('File Tidak Support!\nFile yang di Support : jpg, jpeg & png');
+                  document.getElementById("submit").disabled = true;
+              }
+          };
+    </script>
     </section>
     <!-- /.content -->

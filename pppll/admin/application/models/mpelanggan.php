@@ -12,6 +12,18 @@ class Mpelanggan extends CI_Model {
         $query = $this->db->get();
 
         return $query;
+	} 
+
+	function get_chl($id_user) 
+	{ 
+		$this->db->select('*'); 
+        $this->db->from('perhitungan');
+        $this->db->join('jenis_challenge','jenis_challenge.id_jc=perhitungan.id_jc');
+
+        $this->db->where('id_user',$id_user);
+        
+        $query = $this->db->get();
+        return $query;
 	}
 
 	function insert_p($data)
@@ -24,8 +36,9 @@ class Mpelanggan extends CI_Model {
 	{ 
 		$this->db->select('*'); 
         $this->db->from('user');
+        $this->db->join('rank','rank.id_user=user.id_user');
 
-        $this->db->where('id_user',$id_user);
+        $this->db->where('user.id_user',$id_user);
         
         $query = $this->db->get();
         return $query;

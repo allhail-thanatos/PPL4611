@@ -24,15 +24,15 @@
           <td style="text-align: center;"><?php echo $row['nama_user'] ?></td>
           <td style="text-align: center;"><?php echo $row['id_user'] ?></td>
           <td style="text-align: center;">
-            <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/detp/'.$row['id_user']); ?>">
+            <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/detp/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-folder"></i>
               View
             </a>
-            <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/updatep/'.$row['id_user']); ?>">
+            <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/updatep/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-pencil-alt"></i>
               Edit
             </a>
-            <a class="btn btn-danger btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/deletep/'.$row['id_user']); ?>">
+            <a class="btn btn-danger btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/deletep/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-trash"></i>
               Delete
             </a>
