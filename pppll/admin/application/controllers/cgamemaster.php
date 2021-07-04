@@ -74,12 +74,6 @@ class cgamemaster extends CI_Controller {
               $data1['foto_user'] = $this->input->post('old_foto');
             }
 
-			// echo "<pre>";
-			// print_r($data);
-   //          print_r($data1);
-			// echo "<pre>";
-			// exit();
-
             $this->Mgamemaster->update_gm($data1, $id_user);
         	$this->detgm($this->encrypt->encode($id_user));
         }
@@ -100,10 +94,6 @@ class cgamemaster extends CI_Controller {
         {    
     		$data['edit']=$this->Mgamemaster->det_user($this->encrypt->decode($id_user));
             $data['id_user'] = $id_user;
-            // echo "<pre>";
-            // print_r($data);
-            // echo "<pre>";
-            // exit();
             $this->template->load('admin', 'content' , 'game_master/update_gm',$data);
         }
         else
@@ -134,11 +124,6 @@ class cgamemaster extends CI_Controller {
               $data['foto_user'] = $this->input->post('old_foto');
             }
 
-			// echo "<pre>";
-			// print_r($data);
-			// echo "<pre>";
-			// exit();
-
             $this->Mgamemaster->update_gm($data, $this->encrypt->decode($id_user));
         	$this->detgm($id_user);
         }
@@ -147,7 +132,27 @@ class cgamemaster extends CI_Controller {
     public function deletegm($id_user)
     {
         $this->Mgamemaster->deleteUser_gm($this->encrypt->decode($id_user));
-        $this->index();
+        redirect("admin/cgamemaster","refresh");
+    }
+
+    function aktif($id_user)
+    { 
+        // echo "<pre>";
+        // print_r($this->encrypt->decode($id_user));
+        // echo "<pre>";
+        // exit();
+        $this->Mgamemaster->aktifgm($this->encrypt->decode($id_user));
+        redirect("admin/cgamemaster","refresh");       
+    }
+
+    function nonaktif($id_user)
+    {
+        // echo "<pre>";
+        // print_r($this->encrypt->decode($id_user));
+        // echo "<pre>";
+        // exit();
+        $this->Mgamemaster->nonaktifgm($this->encrypt->decode($id_user));
+        redirect("admin/cgamemaster","refresh");       
     }
     
 		

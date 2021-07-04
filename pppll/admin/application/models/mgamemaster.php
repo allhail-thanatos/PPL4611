@@ -41,5 +41,19 @@ class Mgamemaster extends CI_Model {
     {
         $this->db->delete('user', array('id_user' => $id_user));
     }
+
+    function aktifgm($id_user) 
+    {
+        $status['status_user']='Aktif';
+        $this->db->where('id_user',$id_user);
+        $this->db->update('user', $status);
+    }
+
+    function nonaktifgm($id_user)
+    {
+        $status['status_user']='Nonaktif';
+        $this->db->where('id_user',$id_user);
+        $this->db->update('user', $status);
+    }
 			
 }

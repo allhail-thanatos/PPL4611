@@ -12,6 +12,7 @@
         <tr>
           <th style="text-align: center;">Nama User</th>
           <th style="text-align: center;">ID User</th>
+          <th style="text-align: center;">Status</th>
           <th style="text-align: center;">Action</th>
         </tr>
         </thead>
@@ -23,19 +24,35 @@
         <tr>
           <td style="text-align: center;"><?php echo $row['nama_user'] ?></td>
           <td style="text-align: center;"><?php echo $row['id_user'] ?></td>
+          <td style="text-align: center; ">
+            <center>
+            <?php if($row['id_user'] != $this->session->userdata('id_user')) {?>
+              <?php if($row['status_user'] == 'Aktif') {?>
+                <a class="btn btn-block btn-success btn-sm" style="width: 50%;" href="<?php echo base_url('admin/index.php/cgamemaster/nonaktif/'.$this->encrypt->encode($row['id_user'])); ?>">Aktif
+              <?php }else{?>
+                <a class="btn btn-block btn-danger btn-sm" style="width: 50%;" href="<?php echo base_url('admin/index.php/cgamemaster/aktif/'.$this->encrypt->encode($row['id_user'])); ?>">Nonaktif
+              <?php }?>
+            <?php }else{?>
+                <button type="button" class="btn btn-block btn-success btn-sm disabled" style="width: 50%;">Aktif</button>
+            <?php }?>        
+          </td>
           <td style="text-align: center;">
               <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/detgm/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-folder"></i>
               View
             </a>
+          <?php if($row['id_user'] != $this->session->userdata('id_user')) {?>
             <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/updategm/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-pencil-alt"></i>
               Edit
             </a>
+          <?php }else{}?>
+          <?php if($row['id_user'] != $this->session->userdata('id_user')) {?>
             <a class="btn btn-danger btn-sm" href="<?php echo base_url('admin/index.php/cgamemaster/deletegm/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-trash"></i>
               Delete
             </a>
+          <?php }else{}?>
           </td>
         </tr>
         </tr>
@@ -45,6 +62,7 @@
         <tr>
           <th style="text-align: center;">Nama User</th>
           <th style="text-align: center;">ID User</th>
+          <th style="text-align: center;">Status</th>
           <th style="text-align: center;">Action</th>
         </tr>
         </tfoot>
