@@ -24,41 +24,54 @@
 }
 </style>
     <?php $this->load->view('layout/layoutpelanggan/temp_sidebar.php'); ?>
-        <!-- Page Content-->
+    <?php
+
+        $server="localhost";         
+        $user="root";               
+        $pass="";                  
+        $database="ppl";    
+
+        
+        $conect=mysqli_connect($server,$user,$pass,$database) or die('Error Connection Network');
+
+
+?>
+        
         <div class="container-fluid p-0">
         <h1>History</h1>
-            <!-- About-->
+            
             <section class="resume-section" id="profile">
             <table class="table table-dark">
-                <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                </tr>
-            </tbody>
-            </table>
+            <thead>
+       <tr>
+           <th>NO</th>
+           <th>ID CHALLENGE</th>
+           <th>ID USER</th>
+           <th>STATUS</th>
+           <th>TANGGAL SUBMIT</th>
+       </tr>
+       </thead>
+
+       <tbody>
+        <?php
+        
+        $ambildata=mysqli_query($conect, "SELECT * FROM perhitungan ");
+        while($a=mysqli_fetch_array($ambildata)){
+            ?>
+            <tr>
+                <td><?php echo $a['id_per'];?></td>
+                <td><?php echo $a['id_jc'];?></td>
+                <td><?php echo $a['id_user'];?></td>
+                <td><?php echo $a['status_per'];?></td>
+                <td><?php echo $a['tgl_submit_per'];?></td>
+            </tr>
+        <?php
+        }
+        ?>
+</tbody>
+
+</table>
+
             </section>
             <hr class="m-0" />
         </div>
