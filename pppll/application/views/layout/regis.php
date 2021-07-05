@@ -32,7 +32,7 @@
 
 				<form class="login100-form validate-form" >
 					<span class="login100-form-title" style="width: 350px;">
-						<!-- Member --> Login
+						<!-- Member --> Register
 					</span>
 
 					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Valid email is required: ex@abc.xyz">
@@ -51,19 +51,41 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
-					
-					<div class="container-login100-form-btn" style="width: 350px;">
-						<!-- <button class="login100-form-btn" style="background-color:royalblue;">
-							Login
-						</button> -->
-						<a href="<?php echo base_url('index.php/cdashboard'); ?>" class="login100-form-btn" style="background-color:royalblue;">Login</a>
+
+					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
+						<input class="input100" type="text" name="jk_user" placeholder="Jenis Kelamin">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
 					</div>
+
+					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
+						<input class="input100" type="text" name="alamat_user" placeholder="Alamat User">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
+						<input class="input100" type="text" name="telp_user" placeholder="No Telp User">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
+						<input class="input100" type="text" name="nama_user" placeholder="Nama User">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					
 					<div class="container-login100-form-btn" style="width: 350px;">
 						<button class="login100-form-btn" style="width: 150px;">
 							Register
-						</button>
-						<button class="login100-form-btn" style="width: 200px;background-color:red;">
-							Forgot Password
 						</button>
 					</div>
 
