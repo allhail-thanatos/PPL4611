@@ -65,8 +65,9 @@
 						<input type="submit" name="submit" id="submit" value="Login" class="login100-form-btn" style="background-color:royalblue;">
 					</div>
 					<div class="container-login100-form-btn" style="width: 350px;">
-						<button class="login100-form-btn" style="width: 150px;">
+						<button class="login100-form-btn" style="width: 150px;"><a href="<?php echo base_url('index.php/cregister') ?>">
 							Register
+						</a>
 						</button>
 						<button class="login100-form-btn" style="width: 200px;background-color:red;">
 							Forgot Password
