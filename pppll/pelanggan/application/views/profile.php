@@ -31,27 +31,35 @@
         <h1>PROFILE</h1>
             <!-- About-->
             <section class="resume-section" id="profile">
-            <form>
+            <form method="post" action="<?php echo base_url('pelanggan/index.php/profile/update/'.$this->session->userdata('id_user'))?>" >
+            <div class="form-group">
+                <h3 style="color:blue;">ID USER</h3>
+                    <input type="text" class="form-control" name="id_user" id="id_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('id_user');?>"disabled >
+                </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Email</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('email_user');?>" >
+                    <input type="text" class="form-control" name="email_user" id="email_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('email_user');?>" >
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Role</h3>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="<?php echo $this->session->userdata('role_user');?>"disabled>
+                <input type="text" class="form-control" name="role_user" id="role_user" value="<?php echo $this->session->userdata('role_user');?>"disabled>
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Nama</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('nama_user');?>">
+                    <input type="text" class="form-control" name="nama_user" id="nama_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('nama_user');?>">
                     
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Alamat</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('alamat_user');?>">
+                    <input type="text" class="form-control" name="alamat_user" id="alamat_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('alamat_user');?>">
+                </div>
+                <div class="form-group">
+                <h3 style="color:blue;">NO TELP</h3>
+                    <input type="text" class="form-control" name="telp_user" id="telp_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('telp_user');?>">
                 </div>
                 <div class="form-group">
                 <h3 style="color:blue;">Jenis Kelamin</h3>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="<?php echo $this->session->userdata('jk_user');?>"disabled>
+                    <input type="text" class="form-control" name="jk_user" id="jk_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('jk_user');?>"disabled>
                 </div>
                 
                 <br>
