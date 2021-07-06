@@ -21,6 +21,7 @@
                       <a  class="float-left"><?php echo $row['nama_jc'] ?></a>
                     </div>
                   </li>
+
                   <li class="list-group-item">
                     <div class="col-md-4">
                       <b style="width:80%;"class="float-left">Deskripsi Jenis Challenge</b>
@@ -29,12 +30,21 @@
                       <a  class="float-left"><?php echo $row['desc_jc'] ?></a>
                     </div>
                   </li>
+
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">Point Challenge</b>
+                    </div>
+                    <div class="col-md-8">
+                      <a  class="float-left"><?php echo $row['score_jc'] ?></a>
+                    </div>
+                  </li>
                   <?php } ?>
 
 
                 </ul>
 
-                <center><a href="<?php echo base_url('admin/index.php/cjenischallenge'); ?>" class="btn btn-primary" style="width:25%;"><b>Kembali</b></a></center>
+                <center><a href="<?php echo base_url('admin/cjenischallenge'); ?>" class="btn btn-primary" style="width:25%;"><b>Kembali</b></a></center>
               </div>
               <!-- /.card-body -->
             </div>

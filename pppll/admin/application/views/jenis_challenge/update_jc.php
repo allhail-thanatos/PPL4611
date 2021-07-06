@@ -11,7 +11,7 @@
               </div>
               <div class="card-body">
               <?php foreach ($edit->result_array() as $rows) {?>
-                <form action="<?php echo base_url('admin/index.php/cjenischallenge/updatejc/'.$rows['id_jc']) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/cjenischallenge/updatejc/'.$rows['id_jc']) ?>" method="post" enctype="multipart/form-data">
               <?php } ?>
               <?php foreach ($edit->result_array() as $row) {?>
 
@@ -35,16 +35,35 @@
                         'value'       => $row['desc_jc'],
                         'rows'        => '3',
                         'class'        => 'form-control',
+                        'required'    => 'required'
                       ); 
                     ?>
                     <?php echo form_textarea($text); ?>
+                    </div> 
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Point Challenge</label>
+                    <div class="col-sm-6">
+                    <?php
+                      $text = array(
+                        'name'        => 'score_jc',
+                        'id'          => 'score_jc',
+                        'type'        => 'number',
+                        'value'       => $row['score_jc'],
+                        'rows'        => '3',
+                        'class'       => 'form-control',
+                        'required'    => 'required'
+                      ); 
+                    ?>
+                    <?php echo form_input($text); ?>
                     </div> 
                   </div>
                                     
                 </ul>
 
                 <center>
-                  <a href="<?php echo base_url('admin/index.php/cjenischallenge'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
+                  <a href="<?php echo base_url('admin/cjenischallenge'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
                   <button type="Submit" class="btn btn-primary" style="width:20%;" value="Submit">Update</button>
                 </center>
               <?php } ?>  

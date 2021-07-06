@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cjenischallenge extends CI_Controller {
 	
-	public function __construct()
+	public function __construct() 
 	{
 		parent::__construct();
 		$this->load->model('mjenischallenge');
@@ -27,6 +27,7 @@ class cjenischallenge extends CI_Controller {
     { 
         $this->form_validation->set_rules('nama_jc', 'Nama', 'trim|required');
         $this->form_validation->set_rules('desc_jc', 'Deskripsi', 'trim|required');
+        $this->form_validation->set_rules('score_jc', 'Deskripsi', 'trim|required');
 
         if ($this->form_validation->run() == FALSE)
         {    
@@ -42,6 +43,7 @@ class cjenischallenge extends CI_Controller {
         {       
             $data['nama_jc']		= $this->input->post('nama_jc');
             $data['desc_jc']        = $this->input->post('desc_jc');
+            $data['score_jc']        = $this->input->post('score_jc');
 
 			// echo "<pre>";
 			// print_r($data);
@@ -58,6 +60,7 @@ class cjenischallenge extends CI_Controller {
     { 
         $this->form_validation->set_rules('nama_jc', 'Nama', 'trim|required');
         $this->form_validation->set_rules('desc_jc', 'Deskripsi', 'trim|required');
+        $this->form_validation->set_rules('score_jc', 'Deskripsi', 'trim|required');
 
         if ($this->form_validation->run() == FALSE)
         {    
@@ -73,6 +76,7 @@ class cjenischallenge extends CI_Controller {
         {       
             $data['nama_jc']		= $this->input->post('nama_jc');
             $data['desc_jc']        = $this->input->post('desc_jc');
+            $data['score_jc']        = $this->input->post('score_jc');
 
 			// echo "<pre>";
 			// print_r($data);
@@ -88,7 +92,7 @@ class cjenischallenge extends CI_Controller {
     public function deletejc($id_jc)
     {
         $this->mjenischallenge->deletejc($id_jc);
-        $this->index();
+        redirect("admin/cjenischallenge","refresh");
     }
 		
 }
