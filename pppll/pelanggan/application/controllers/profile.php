@@ -20,6 +20,30 @@ class profile extends CI_Controller {
 		
 		$this->load->view('profile',$data);
 	}
+
+	public function update($id_user)
+    {
+        
+		$this->id = uniqid();
+		$data['nama_user']		= $this->input->post('nama_user');
+		$data['alamat_user']	= $this->input->post('alamat_user');
+		$data['telp_user']		= $this->input->post('telp_user');
+		$data['email_user']		= $this->input->post('email_user');
+		$data['role_user']      = 'Pelanggan';
+		$data['status_user']    = 'Aktif';
+
+		
+
+		// echo "<pre>";
+		// print_r($data);
+//          print_r($data1);
+		// echo "<pre>";
+		// exit();
+
+		$this->profilemodels->update_user($data, $id_user);
+		$this->load->view('profile',$data);
+        
+    }
 		
 }
 ?>
