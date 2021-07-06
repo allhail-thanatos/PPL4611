@@ -29,9 +29,10 @@
         <!-- Page Content-->
         <div class="container-fluid p-0">
         <h1>PROFILE</h1>
+        
             <!-- About-->
             <section class="resume-section" id="profile">
-            <form method="post" action="<?php echo base_url('pelanggan/index.php/profile/update/'.$this->session->userdata('id_user'))?>" >
+            <form method="post" action="<?php echo base_url('pelanggan/index.php/profile/update/'.$this->session->userdata('id_user'))?>" enctype="multipart/form-data">
             <div class="form-group">
                 <h3 style="color:blue;">ID USER</h3>
                     <input type="text" class="form-control" name="id_user" id="id_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('id_user');?>"disabled >
@@ -60,6 +61,16 @@
                 <div class="form-group">
                 <h3 style="color:blue;">Jenis Kelamin</h3>
                     <input type="text" class="form-control" name="jk_user" id="jk_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('jk_user');?>"disabled>
+                </div> 
+
+                <div class="form-group">
+                <h3 style="color:blue;">Password</h3>
+                    <input type="text" class="form-control" name="pass_user" id="pass_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('password_user');?>">
+                </div>
+
+                <div class="form-group">
+                <h3 style="color:blue;">Foto Profile</h3>
+                    <input type="file" class="form-control" name="foto_user" id="foto_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('foto_user');?>">
                 </div>
                 
                 <br>
@@ -68,9 +79,12 @@
             </section>
             <hr class="m-0" />
         </div>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo base_url('assets/pelanggan/js/scripts.js')?>"></script>
+        
     </body>
+
 </html>
