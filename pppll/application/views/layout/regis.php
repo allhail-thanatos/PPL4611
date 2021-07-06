@@ -56,21 +56,21 @@
 						<input class="input100" type="text" name="alamat_user" placeholder="Alamat User">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+							<i class="fa fa-address-card-o" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
 						<input class="input100" type="text" name="telp_user" placeholder="No Telp User">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+							<i class="fa fa-phone-square" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
 						<input class="input100" type="text" name="nama_user" placeholder="Nama User">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+							<i class="fa fa-user-circle-o" aria-hidden="true"></i>
 						</span>
 					</div>
 					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
