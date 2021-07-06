@@ -24,6 +24,13 @@ class Profilemodels extends CI_Model {
         
 		return $query->num_rows();
 	}
+
+	function update_user($data, $id_user) 
+	{ 
+		$this->db->where('id_user',$id_user);
+        $this->db->update('user', $data);
+	}
+
 			
 }
 ?>
