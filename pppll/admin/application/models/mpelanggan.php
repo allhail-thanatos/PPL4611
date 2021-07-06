@@ -5,7 +5,7 @@ class Mpelanggan extends CI_Model {
  
 	function getUser() // List User
 	{ 
-		$this->db->select('*');
+		$this->db->select('*'); 
         $this->db->from('user');
         $this->db->where('role_user','Pelanggan');
         $this->db->order_by('nama_user','ASC');
@@ -53,6 +53,20 @@ class Mpelanggan extends CI_Model {
 	function deleteUser_p($id_user)
     {
         $this->db->delete('user', array('id_user' => $id_user));
+    }
+
+    function aktifp($id_user) 
+    {
+        $status['status_user']='Aktif';
+        $this->db->where('id_user',$id_user);
+        $this->db->update('user', $status);
+    }
+
+    function nonaktifp($id_user)
+    {
+        $status['status_user']='Nonaktif';
+        $this->db->where('id_user',$id_user);
+        $this->db->update('user', $status);
     }
 			
 }

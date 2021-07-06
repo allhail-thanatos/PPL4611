@@ -19,7 +19,9 @@ class cpelanggan extends CI_Controller {
     public function detp($id_user)
     {
         $data['detail'] = $this->Mpelanggan->det_user($this->encrypt->decode($id_user));
-        $data['chl'] = $this->Mpelanggan->get_chl($this->encrypt->decode($id_user));
+        $data['chl'] = $this->Mpelanggan->get_chl($this->encrypt->decode($id_user)); 
+        $data['riwayat'] = $this->Mpelanggan->get_chl($this->encrypt->decode($id_user)); 
+        // $data['riwayat'] = $this->Mpelanggan->get_riwayat($this->encrypt->decode($id_user)); 
 
         $this->template->load('admin', 'content' , 'pelanggan/det_p', $data);
     }
@@ -131,7 +133,27 @@ class cpelanggan extends CI_Controller {
     public function deletep($id_user)
     {
         $this->Mpelanggan->deleteUser_p($this->encrypt->decode($id_user));
-        $this->index();
+        redirect("admin/cpelanggan","refresh");
+    }
+
+    function aktif($id_user)
+    { 
+        // echo "<pre>";
+        // print_r($this->encrypt->decode($id_user));
+        // echo "<pre>";
+        // exit();
+        $this->Mpelanggan->aktifp($this->encrypt->decode($id_user));
+        redirect("admin/cpelanggan","refresh");       
+    }
+
+    function nonaktif($id_user)
+    {
+        // echo "<pre>";
+        // print_r($this->encrypt->decode($id_user));
+        // echo "<pre>";
+        // exit();
+        $this->Mpelanggan->nonaktifp($this->encrypt->decode($id_user));
+        redirect("admin/cpelanggan","refresh");       
     }
     
         

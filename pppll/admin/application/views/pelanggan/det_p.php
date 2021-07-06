@@ -75,7 +75,7 @@
                   </li>
                   <li class="list-group-item">
                     <div class="col-md-4">
-                      <b style="width:80%;"class="float-left">Score</b>
+                      <b style="width:80%;"class="float-left">Akumulasi Score</b>
                     </div>
                     <div class="col-md-8">
                       <a  class="float-left"><?php echo $row['score'] ?></a>
@@ -121,10 +121,7 @@
                                   
                                 </td>
                               <td style="text-align: center;">
-                                <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/index.php/cpelanggan/detp'); ?>">
-                                  <i class="fas fa-folder"></i>
-                                  View
-                                </a>
+                                <a class="btn btn-primary btn-sm" id="<?php echo $row['id_per'] ?>" data-toggle="modal" data-target="#detail_<?php echo $row['id_per'] ?>"><i class="fas fa-folder"></i>Detail</a>
                               </td>
                             </tr>
                             <?php } ?>
@@ -155,9 +152,115 @@
             <!-- /.card -->
 
             
-        </div>
+        </div> 
         
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    <?php
+      foreach ($riwayat->result_array() as $rows) {
+    ?>
+    <div class="modal fade" id="detail_<?php echo $rows['id_per'] ?>">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Data Challange</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Profile Image -->
+            <div class="card card-primary">
+              <div class="card-header" style="background-color: #007bff;">
+                <h3 class="card-title">Detail Data Pengajuan Challange</h3>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b class="float-left"><h5><b>Data Pengajuan</b></h5></b>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">Tanggal Pengajuan</b>
+                    </div>
+                    <div class="col-md-8">
+                      <a  class="float-left"><?php echo date("d-m-Y H:i", strtotime($rows['tgl_submit_per'])); ?> WIB</a>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">Status Pengajuan</b>
+                    </div>
+                    <div class="col-md-8">
+                      <a  class="float-left">
+                        <?php if($rows['status_per'] == 'Diverifikasi') { ?>
+                          <button class="btn btn-success btn-sm" disabled="">Diverifikasi</button>
+                        <?php }else if($rows['status_per'] == 'Ditolak') { ?>
+                          <button class="btn btn-danger btn-sm" disabled="">Ditolak</button>
+                        <?php }else{ ?>
+                          <button class="btn btn-warning btn-sm" disabled="">Belum Diverifikasi</button>
+                        <?php } ?>    
+                      </a>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left"></b>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b class="float-left"><h5><b>Data Challange</b></h5></b>
+                    </div>
+                    <div class="col-md-8">
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">Jenis Challange</b>
+                    </div>
+                    <div class="col-md-8">
+                      <a  class="float-left"><?php echo $rows['nama_jc'] ?></a>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">Deskripsi Challange</b>
+                    </div>
+                    <div class="col-md-8">
+                      <a  class="float-left"><?php echo $rows['desc_jc'] ?></a>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">Point Challange</b>
+                    </div>
+                    <div class="col-md-8">
+                      <a  class="float-left"><?php echo $rows['score_jc'] ?></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <div class="modal-footer justify-content-between">
+            <a ></a>
+            <button type="button" class="btn btn-primary" style="width: 15%;" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <?php } ?>
+    <!-- /.modal -->
