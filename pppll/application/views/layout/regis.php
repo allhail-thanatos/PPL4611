@@ -30,14 +30,14 @@
 					<img src="<?php echo base_url('assets/admin/images/img-01.png')?>" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" >
+				<form class="login100-form validate-form" method="post" action="<?php echo base_url('index.php/cregister/register'); ?>">
 					<span class="login100-form-title" style="width: 350px;">
 						<!-- Member --> Register
 					</span>
 
 					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Valid email is required: ex@abc.xyz">
 						
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="text" name="email_user" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -45,15 +45,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-
-					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
-						<input class="input100" type="text" name="jk_user" placeholder="Jenis Kelamin">
+						<input class="input100" type="password" name="pass_user" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -81,12 +73,20 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					<div class="wrap-input100 validate-input" style="width: 350px;" data-validate = "Password is required">
+						<label>Jenis Kelamin</label><br>
+						<input  type="radio" id="L" name="jk_user" value="Laki-Laki" >
+						<label for="L">Laki-Laki</label><br>
+						<input  type="radio" id="P" name="jk_user" value="Perempuan" >
+						<label for="P">Perempuan</label>
+						
+					</div>
 					
 					
 					<div class="container-login100-form-btn" style="width: 350px;">
 						<button class="login100-form-btn" style="width: 150px;">
 							Register
-						</button>
+						
 					</div>
 
 					<div class="text-center p-t-12">
