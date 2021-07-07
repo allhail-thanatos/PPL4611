@@ -12,7 +12,7 @@ class cprofile extends CI_Controller {
 
 	// Index login
 	public function index($id_user) {
-		$data = '';
+		$data['page']     = 'cprofile';
 
         $this->template->load('admin', 'content' , 'profile/det_profile', $data);
 	}
@@ -21,6 +21,7 @@ class cprofile extends CI_Controller {
     {
         $data['detail'] = $this->mprofile->det_profile($this->encrypt->decode($id_user));
 		$data['id_user'] = $id_user;
+		$data['page']     = 'cprofile';
 		// echo "<pre>";
 		// print_r($data);
 		// echo "<pre>";
@@ -44,6 +45,7 @@ class cprofile extends CI_Controller {
         {    
     		$data['edit']=$this->mprofile->det_profile($this->encrypt->decode($id_user));
     		$data['id_user'] = $id_user;
+    		$data['page']     = 'cprofile';
 
             // echo "<pre>";
             // print_r($data);
