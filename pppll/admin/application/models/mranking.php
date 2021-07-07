@@ -6,11 +6,16 @@ class Mranking extends CI_Model {
 	function getrank() 
 	{ 
 		$this->db->select('*');
-        $this->db->from('user');
+        $this->db->from('rank');
+        $this->db->join('user','user.id_user=rank.id_user');
+        $this->db->order_by('score','DESC');
+        // $this->db->from('user');
         // $this->db->join('perhitungan','perhitungan.id_user=user.id_user');
-        $this->db->join('rank','rank.id_user=user.id_user');
+        // $this->db->join('rank','rank.id_user=user.id_user');
+        // $this->db->join('user','user.id_user=rank.id_user');
         // $this->db->where('id_user',$id);
-        // $this->db->order_by('tgl_submit_per','ASC'); 
+        // $this->db->order_by('tgl_submit_per','ASC');
+         
         $query = $this->db->get();
 
         return $query;
