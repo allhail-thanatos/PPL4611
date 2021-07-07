@@ -18,6 +18,7 @@ class cdashboard extends CI_Controller {
 		$data['pelanggan_a']=$this->mdashboard->get_pelanggan_a();
 		$data['pelanggan_n']=$this->mdashboard->get_pelanggan_n();
 		$data['verif']=$this->mdashboard->get_verif();
+		$data['page']='cdashboard';
 		// 	echo "<pre>";
 		//  print_r($data); 
 		//  echo "<pre>";
