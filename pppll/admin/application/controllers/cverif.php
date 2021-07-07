@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+ 
 class cverif extends CI_Controller {
 	
 	public function __construct()
@@ -11,13 +11,19 @@ class cverif extends CI_Controller {
  
 	public function index() {
 		$data['query'] = $this->mverif->getverif();
+        $data['page']     = 'cverif';
 		
 		$this->template->load('admin', 'content' , 'verif/list_verif',$data);
 	}
 
-	public function detverif()
+	public function detverif($id_per)
     {
-        $data = '';
+        $data['page']='cgamemaster';
+        $data['detail'] = $this->mverif->det_verif($this->encrypt->decode($id_per));
+        // echo "<pre>";
+        // print_r($data);
+        // echo "<pre>";
+        // exit();
 
         $this->template->load('admin', 'content' , 'verif/det_verif', $data);
     }

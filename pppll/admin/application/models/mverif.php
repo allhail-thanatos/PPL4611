@@ -16,14 +16,14 @@ class Mverif extends CI_Model {
         return $query;
 	}
 
-	function det_verif($id_user) 
+	function det_verif($id_per) 
 	{ 
 		$this->db->select('*'); 
         $this->db->from('perhitungan');
-        $this->db->join('user','user.id_user=perhitungan.id_user');
-        $this->db->join('jenis_challenge','jenis_challenge.id_jc=jenis_challenge.id_jc');
+        $this->db->join('user','perhitungan.id_user=user.id_user');
+        $this->db->join('jenis_challenge','jenis_challenge.id_jc=perhitungan.id_jc');
 
-        $this->db->where('id_user',$id_user);
+        $this->db->where('id_per',$id_per);
         
         $query = $this->db->get();
         return $query;
