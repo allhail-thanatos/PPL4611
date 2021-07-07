@@ -12,12 +12,14 @@ class cpelanggan extends CI_Controller {
     // Index login
     public function index() {
         $data['query'] = $this->Mpelanggan->getUser(); 
+        $data['page']     = 'cpelanggan';
         
         $this->template->load('admin', 'content' , 'pelanggan/list_p',$data);
     }
 
     public function detp($id_user)
     {
+        $data['page']     = 'cpelanggan';
         $data['detail'] = $this->Mpelanggan->det_user($this->encrypt->decode($id_user));
         $data['chl'] = $this->Mpelanggan->get_chl($this->encrypt->decode($id_user)); 
         $data['riwayat'] = $this->Mpelanggan->get_chl($this->encrypt->decode($id_user)); 
@@ -33,12 +35,14 @@ class cpelanggan extends CI_Controller {
         $this->form_validation->set_rules('alamat_user', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('telp_user', 'No Telepon', 'trim|required');
         $this->form_validation->set_rules('email_user', 'Email', 'trim|required');
+        $this->form_validation->set_rules('pass_user', 'Password', 'trim|required');
 
         $this->form_validation->set_message('required', '*) Lengkapi Data Anda!');
 
         if ($this->form_validation->run() == FALSE)
         {    
             $data='';
+            $data['page']     = 'cpelanggan';
             // echo "<pre>";
             // print_r($data);
             // echo "<pre>";
@@ -53,9 +57,16 @@ class cpelanggan extends CI_Controller {
             $data['alamat_user']    = $this->input->post('alamat_user');
             $data['telp_user']      = $this->input->post('telp_user');
             $data['email_user']     = $this->input->post('email_user');
-            $data['role_user']      = 'Game Master';
+            $data['pass_user']      = $this->input->post('pass_user');
+            $data['role_user']      = 'Pelanggan';
+            $data['status_user']    = 'Nonaktif';
 
             $id_user = $this->Mpelanggan->insert_p($data);
+
+            $data2['id_user']   = $id_user;
+            $data2['score']     = '0';
+
+            $this->Mpelanggan->insert_rank($data2);
 
             $config['upload_path']          = '../upload/foto_profile/';
             $config['allowed_types']        = 'jpg|jpeg|png';
@@ -88,11 +99,13 @@ class cpelanggan extends CI_Controller {
         $this->form_validation->set_rules('alamat_user', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('telp_user', 'No Telepon', 'trim|required');
         $this->form_validation->set_rules('email_user', 'Email', 'trim|required');
+        $this->form_validation->set_rules('pass_user', 'Password', 'trim|required');
 
         $this->form_validation->set_message('required', '*) Lengkapi Data Anda!');
 
         if ($this->form_validation->run() == FALSE)
         {    
+            $data['page']     = 'cpelanggan';
             $data['edit']=$this->Mpelanggan->det_user($this->encrypt->decode($id_user));
             $data['id_user'] = $id_user;
             $this->template->load('admin', 'content' , 'pelanggan/update_p',$data);
@@ -105,6 +118,7 @@ class cpelanggan extends CI_Controller {
             $data['alamat_user']    = $this->input->post('alamat_user');
             $data['telp_user']      = $this->input->post('telp_user');
             $data['email_user']     = $this->input->post('email_user');
+            $data['pass_user']     = $this->input->post('pass_user');
 
             $config['upload_path']          = '../upload/foto_profile/';
             $config['allowed_types']        = 'jpg|jpeg|png';

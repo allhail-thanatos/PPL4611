@@ -145,7 +145,7 @@
 
                 </ul>
 
-                <center><a href="<?php echo base_url('admin/index.php/cpelanggan'); ?>" class="btn btn-primary" style="width:25%;"><b>Kembali</b></a></center>
+                <center><a href="<?php echo base_url('admin/cpelanggan'); ?>" class="btn btn-primary" style="width:25%;"><b>Kembali</b></a></center>
               </div>
               <!-- /.card-body -->
             </div>
@@ -207,6 +207,20 @@
                           <button class="btn btn-warning btn-sm" disabled="">Belum Diverifikasi</button>
                         <?php } ?>    
                       </a>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="col-md-4">
+                      <b style="width:80%;"class="float-left">File Pengajuan</b>
+                    </div>
+                    <div class="col-md-8">
+                      <?php if ($rows['bukti_per'] != NULL) { ?>
+                        <a href="<?php echo base_url('./upload/bukti_chl/'.$rows['bukti_per']) ?>" download>
+                          <button type="button" class="btn btn-sm btn-success" style="width:30%;">Download File</button>
+                        </a>
+                      <?php } else { ?>
+                        <button type="button" class="btn btn-sm btn-danger disabled" style="width:30%;">File Tidak Tersedia</button>
+                      <?php } ?>
                     </div>
                   </li>
                   <li class="list-group-item">

@@ -38,7 +38,7 @@
           <td style="text-align: center;">
             <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/cpelanggan/detp/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-folder"></i>
-              View
+              Detail
             </a>
             <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/cpelanggan/updatep/'.$this->encrypt->encode($row['id_user'])); ?>">
               <i class="fas fa-pencil-alt"></i>

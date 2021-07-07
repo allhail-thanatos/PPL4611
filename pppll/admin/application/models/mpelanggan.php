@@ -32,6 +32,11 @@ class Mpelanggan extends CI_Model {
         return $this->db->insert_id();
     }
 
+    function insert_rank($data)
+    {
+        $this->db->insert('rank',$data);
+    }
+
 	function det_user($id_user) 
 	{ 
 		$this->db->select('*'); 

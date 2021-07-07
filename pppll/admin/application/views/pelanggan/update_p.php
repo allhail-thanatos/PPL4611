@@ -11,7 +11,7 @@
               </div>
               <div class="card-body">
               <?php foreach ($edit->result_array() as $rows) {?>
-                <form action="<?php echo base_url('admin/index.php/cpelanggan/updatep/'.$this->encrypt->encode($rows['id_user'])) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('admin/cpelanggan/updatep/'.$this->encrypt->encode($rows['id_user'])) ?>" method="post" enctype="multipart/form-data">
               <?php } ?>
               <?php foreach ($edit->result_array() as $row) {?>
                 <div class="text-center">
@@ -87,6 +87,23 @@
                   </div>
 
                   <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-6">
+                      <?php
+                      $text = array(
+                        'name'        => 'pass_user',
+                        'id'          => 'pass_user',
+                        'type'        => 'password',
+                        'value'       => $row['pass_user'],
+                        'class'       => 'form-control',
+                        'required'    => 'required',
+                      ); ?>
+
+                      <?php echo form_input($text); ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Foto</label>
                     <div class="col-sm-6">
                       
@@ -100,7 +117,7 @@
                 </ul>
 
                 <center>
-                  <a href="<?php echo base_url('admin/index.php/cpelanggan'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
+                  <a href="<?php echo base_url('admin/cpelanggan'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
                   <button type="Submit" class="btn btn-primary" style="width:20%;" id="submit" value="Submit">Submit</button>
                 </center>
               <?php } ?>
