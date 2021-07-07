@@ -26,8 +26,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          
-          <li class="nav-item menu-open">
+          <?php 
+            $query = $this->db->query("SELECT * FROM `perhitungan` WHERE status_per = 'Belum Diverifikasi'");
+          ?>
+          <?php if($page == 'cdashboard'){ ?>
+            <li class="nav-item menu-open">
+          <?php }else{ ?>
+            <li class="nav-item">
+          <?php } ?>
             <a href="<?php echo base_url ('admin/cdashboard') ?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -37,16 +43,26 @@
             </a>
           </li>
           <li class="nav-header">DATA</li>
-          <li class="nav-item">
+          <?php if($page == 'cverif'){ ?>
+            <li class="nav-item menu-open">
+          <?php }else{ ?>
+            <li class="nav-item">
+          <?php } ?>
             <a href="<?php echo base_url ('admin/cverif') ?>" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Verifikasi Challenge
-                <span class="badge badge-info right">2</span>
+                <?php if($query->num_rows() >= 1) {?>
+                  <span class="badge badge-info right"><?php echo $query->num_rows() ?></span>
+                <?php } ?>
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <?php if($page == 'cranking'){ ?>
+            <li class="nav-item menu-open">
+          <?php }else{ ?>
+            <li class="nav-item">
+          <?php } ?>
             <a href="<?php echo base_url ('admin/cranking') ?>" class="nav-link">
               <i class="nav-icon fas fa-trophy"></i>
               <p>
@@ -55,30 +71,45 @@
             </a>
           </li>
           <li class="nav-header">COMPONENTS</li>
-          <li class="nav-item">
+          <?php if($page == 'cjenischallenge'){ ?>
+            <li class="nav-item menu-open">
+          <?php }else{ ?>
+            <li class="nav-item">
+          <?php } ?>
             <a href="<?php echo base_url ('admin/cjenischallenge') ?>" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>Jenis Challenge</p>
             </a>
           </li>
           <li class="nav-header">USER</li>
-          <li class="nav-item">
+          <?php if($page == 'cgamemaster' || $page == 'cpelanggan'){ ?>
+            <li class="nav-item menu-open">
+          <?php }else{ ?>
+            <li class="nav-item">
+          <?php } ?>
             <a class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Management User
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
+              <?php if($page == 'cgamemaster'){ ?>
+                <li class="nav-item menu-open">
+              <?php }else{ ?>
+                <li class="nav-item">
+              <?php } ?>
                 <a href="<?php echo base_url ('admin/cgamemaster') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Game Master</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <?php if($page == 'cpelanggan'){ ?>
+                <li class="nav-item menu-open">
+              <?php }else{ ?>
+                <li class="nav-item">
+              <?php } ?>
                 <a href="<?php echo base_url ('admin/cpelanggan') ?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Pelanggan</p>
