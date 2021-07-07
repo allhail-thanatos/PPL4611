@@ -5,7 +5,7 @@ class Mgamemaster extends CI_Model {
 
 	function getUser() // List User
 	{ 
-		$this->db->select('*');
+		$this->db->select('*'); 
         $this->db->from('user');
         $this->db->where('role_user','Game Master');
         $this->db->order_by('nama_user','ASC');

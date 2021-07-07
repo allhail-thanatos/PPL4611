@@ -85,6 +85,23 @@
                       <?php echo form_input( 'email_user', $row['email_user'], 'class="form-control" id="email_user" placeholder="Masukkan Email" '). "<div style='color: red;'>".form_error( 'email_user'). "</div>"; ?>
                     </div>
                   </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-6">
+                      <?php
+                      $text = array(
+                        'name'        => 'pass_user',
+                        'id'          => 'pass_user',
+                        'type'        => 'password',
+                        'value'       => $row['pass_user'],
+                        'class'       => 'form-control',
+                        'required'    => 'required',
+                      ); ?>
+
+                      <?php echo form_input($text); ?>
+                    </div>
+                  </div>
                   
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Foto</label>

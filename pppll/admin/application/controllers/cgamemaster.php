@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class cgamemaster extends CI_Controller {
-	
+	 
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,13 +11,15 @@ class cgamemaster extends CI_Controller {
  
 	// Index login
 	public function index() {
-		$data['query'] = $this->Mgamemaster->getUser(); 
+		$data['query'] = $this->Mgamemaster->getUser();
+        $data['page']='cgamemaster'; 
 		
 		$this->template->load('admin', 'content' , 'game_master/list_gm',$data);
 	}
 
 	public function detgm($id_user)
     {
+        $data['page']='cgamemaster';
         $data['detail'] = $this->Mgamemaster->det_user($this->encrypt->decode($id_user));
 
         $this->template->load('admin', 'content' , 'game_master/det_gm', $data);
@@ -30,12 +32,13 @@ class cgamemaster extends CI_Controller {
         $this->form_validation->set_rules('alamat_user', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('telp_user', 'No Telepon', 'trim|required');
         $this->form_validation->set_rules('email_user', 'Email', 'trim|required');
+        $this->form_validation->set_rules('pass_user', 'Password', 'trim|required');
 
         $this->form_validation->set_message('required', '*) Lengkapi Data Anda!');
 
         if ($this->form_validation->run() == FALSE)
         {    
-    		$data='';
+    		$data['page']='cgamemaster';
 
             // echo "<pre>";
             // print_r($data);
@@ -50,7 +53,8 @@ class cgamemaster extends CI_Controller {
 			$data['jk_user']		= $this->input->post('jk_user');
 			$data['alamat_user']	= $this->input->post('alamat_user');
 			$data['telp_user']		= $this->input->post('telp_user');
-			$data['email_user']		= $this->input->post('email_user');
+            $data['email_user']     = $this->input->post('email_user');
+			$data['pass_user']		= $this->input->post('pass_user');
             $data['role_user']      = 'Game Master';
 
             $id_user = $this->Mgamemaster->insert_gm($data);
@@ -87,12 +91,14 @@ class cgamemaster extends CI_Controller {
         $this->form_validation->set_rules('alamat_user', 'Alamat', 'trim|required');
         $this->form_validation->set_rules('telp_user', 'No Telepon', 'trim|required');
         $this->form_validation->set_rules('email_user', 'Email', 'trim|required');
+        $this->form_validation->set_rules('pass_user', 'Password', 'trim|required');
 
         $this->form_validation->set_message('required', '*) Lengkapi Data Anda!');
 
         if ($this->form_validation->run() == FALSE)
         {    
-    		$data['edit']=$this->Mgamemaster->det_user($this->encrypt->decode($id_user));
+    		$data['page']='cgamemaster';
+            $data['edit']=$this->Mgamemaster->det_user($this->encrypt->decode($id_user));
             $data['id_user'] = $id_user;
             $this->template->load('admin', 'content' , 'game_master/update_gm',$data);
         }
@@ -103,7 +109,8 @@ class cgamemaster extends CI_Controller {
 			$data['jk_user']		= $this->input->post('jk_user');
 			$data['alamat_user']	= $this->input->post('alamat_user');
 			$data['telp_user']		= $this->input->post('telp_user');
-			$data['email_user']		= $this->input->post('email_user');
+            $data['email_user']     = $this->input->post('email_user');
+			$data['pass_user']		= $this->input->post('pass_user');
 
             $config['upload_path']          = '../upload/foto_profile/';
             $config['allowed_types']        = 'jpg|jpeg|png';

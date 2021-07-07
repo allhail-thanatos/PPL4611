@@ -65,6 +65,22 @@
                   </div>
 
                   <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-6">
+                      <?php
+                      $pass = array(
+                        'name'        => 'pass_user',
+                        'id'          => 'pass_user',
+                        'type'        => 'password',
+                        'class'       => 'form-control',
+                        'required'    => 'required',
+                      ); ?>
+
+                      <?php echo form_input($pass); ?>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-3 col-form-label">Foto</label>
                     <div class="col-sm-6">
                       <?php echo form_upload( 'foto_user', 'foto_user', 'class="form-control-file" id="gambar1" accept="image/*" onchange="loadFile1(event)" ');?>
@@ -76,7 +92,7 @@
 
                 <center>
                   <a href="<?php echo base_url('admin/index.php/cgamemaster'); ?>" class="btn btn-danger" style="width:20%;"><b>Kembali</b></a> &nbsp;
-                  <button type="Submit" class="btn btn-primary" value="Submit" style="width:20%;">Submit</button>
+                  <button type="Submit" id="submit" class="btn btn-primary" value="Submit" style="width:20%;">Submit</button>
                 </center>
               </form>
               </div>
@@ -102,7 +118,7 @@
 
           if (fsize > 2097152) //do something if file size more than 1 mb (1048576)
           {
-              alert("File Terlalu Besar!\nMaksimal Ukuran File 2MB");
+              alert("File Terlalu Besar!\nMaksimal Ukuran File 2MB\nTombol submit di disable sampai file diganti dengan kriteria yang berlaku");
               document.getElementById("submit").disabled = true;
               //document.getElementById("kir_no").disabled = true;
           } else {
@@ -126,10 +142,10 @@
                   }
                   break;
               default:
-                  alert('File Tidak Support!\nFile yang di Support : jpg, jpeg & png');
+                  alert('File Tidak Support!\nFile yang di Support : jpg, jpeg & png\nTombol submit di disable sampai file diganti dengan kriteria yang berlaku');
                   document.getElementById("submit").disabled = true;
               }
           };
-    </script>
+      </script>
     </section>
     <!-- /.content -->
