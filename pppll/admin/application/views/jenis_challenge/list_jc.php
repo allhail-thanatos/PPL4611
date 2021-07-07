@@ -29,7 +29,7 @@
           <td style="text-align: center;">
             <a class="btn btn-primary btn-sm" href="<?php echo base_url('admin/cjenischallenge/detjc/'.$row['id_jc']); ?>">
               <i class="fas fa-folder"></i>
-              View
+              Detail
             </a>
             <a class="btn btn-info btn-sm" href="<?php echo base_url('admin/cjenischallenge/updatejc/'.$row['id_jc']); ?>">
               <i class="fas fa-pencil-alt"></i>

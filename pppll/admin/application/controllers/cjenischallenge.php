@@ -11,13 +11,15 @@ class cjenischallenge extends CI_Controller {
  
 	// Index login
 	public function index() {
-		$data['query'] = $this->mjenischallenge->getjc();
+		$data['query']    = $this->mjenischallenge->getjc();
+        $data['page']     = 'cjenischallenge';
 		
 		$this->template->load('admin', 'content' , 'jenis_challenge/list_jc',$data);
 	}
 
     public function detjc($id_jc)
     {
+        $data['page']     = 'cjenischallenge';
         $data['detail'] = $this->mjenischallenge->det_jc($id_jc);
 
         $this->template->load('admin', 'content' , 'jenis_challenge/det_jc', $data);
@@ -31,8 +33,7 @@ class cjenischallenge extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {    
-    		$data			= '';
-
+    		$data['page']     = 'cjenischallenge';
             // echo "<pre>";
             // print_r($data);
             // echo "<pre>";
@@ -64,7 +65,8 @@ class cjenischallenge extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {    
-    		$data['edit']			= $this->mjenischallenge->det_jc($id_jc);
+    		$data['page']     = 'cjenischallenge';
+            $data['edit']			= $this->mjenischallenge->det_jc($id_jc);
 
             // echo "<pre>";
             // print_r($data);
