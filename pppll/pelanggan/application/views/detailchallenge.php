@@ -36,6 +36,8 @@
                 <th scope="col">Nama Challenge</th>
                 <th scope="col">Deskripsi Challenge</th>
                 <th scope="col">Skor</th>
+                <th scope="col" style="text-align:center">Upload Bukti</th>
+
                 </tr>
                 </thead>
                 <?php
@@ -46,9 +48,18 @@
                 <td><a href="<?php echo base_url('pelanggan/index.php/challenge/detjc/'.$row['id_jc']); ?>"><?php echo $row['nama_jc']?></td>
                 <td><?php echo $row['desc_jc'] ?></td>
                 <td><?php echo $row['score_jc'] ?></td>
-            </tbody>
+                <td>
+                    <form method="post"   action="<?php echo base_url('pelanggan/index.php/challenge/uploadbukti/'.$this->session->userdata('id_user')); ?>">
+                        <input type="file" id="myfile" name="myfile" multiple accept="image/*">
+                        <input type="hidden" name="id_jc" value="<?php echo $row['id_jc'] ?>">
+                        <input type="hidden" name="score_jc" value="<?php echo $row['score_jc'] ?>">
+                        <input type="submit" value="Upload">
+                    </form>
+                </td>
+                </tbody>
             <?php } ?>
             </table>
+                 
             </section>
             <hr class="m-0" />
         </div>

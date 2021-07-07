@@ -70,7 +70,7 @@
 
                 <div class="form-group">
                 <h3 style="color:blue;">Foto Profile</h3>
-                    <input type="file" class="form-control" name="foto_user" id="foto_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('foto_user');?>">
+                    <input type="file" accept="image/*" class="form-control" name="foto_user" id="foto_user" aria-describedby="emailHelp" value="<?php echo $this->session->userdata('foto_user');?>">
                 </div>
                 
                 <br>

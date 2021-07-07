@@ -68,12 +68,16 @@ class cregister extends CI_Controller {
               $data1['foto_user'] = $this->input->post('old_foto');
             }
 
+            $data2['id_user'] = $id_user;
+            $data2['score'] = 0;
+
 			// echo "<pre>";
 			// print_r($data);
    //          print_r($data1);
 			// echo "<pre>";
 			// exit();
 
+            $this->mregister->insert_rank($data2);
             $this->mregister->update_user($data1, $id_user);
             $this->load->view('layout/login',$data);
         }

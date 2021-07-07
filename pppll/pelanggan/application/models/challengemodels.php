@@ -44,5 +44,12 @@ class Challengemodels extends CI_Model {
         $query = $this->db->get();
         return $query;
 	}
+
+	function upload_bukti($bukti_per) 
+	{  
+        $this->db->insert('perhitungan', $bukti_per);
+        
+        
+	}
 			
 }
