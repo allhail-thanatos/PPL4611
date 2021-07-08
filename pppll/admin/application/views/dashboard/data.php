@@ -26,7 +26,7 @@
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              <a href="<?php echo base_url('admin/cpelanggan'); ?>" class="small-box-footer">Menuju Halaman <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('admin/cgamemaster'); ?>" class="small-box-footer">Menuju Halaman <i class="fas fa-arrow-circle-right"></i></a>
             </div> 
           </div>
           <!-- ./col -->
@@ -54,7 +54,7 @@
               <div class="icon">
                 <i class="ion ion-person-stalker"></i>
               </div>
-              <a href="<?php echo base_url('admin/cgamemaster'); ?>" class="small-box-footer">Menuju Halaman <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('admin/cpelanggan'); ?>" class="small-box-footer">Menuju Halaman <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
