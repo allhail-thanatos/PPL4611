@@ -41,7 +41,6 @@ class cpelanggan extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE)
         {    
-            $data='';
             $data['page']     = 'cpelanggan';
             // echo "<pre>";
             // print_r($data);
